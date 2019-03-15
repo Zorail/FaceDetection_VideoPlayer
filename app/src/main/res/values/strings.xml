@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Video_Player</string>
+    <string name="main_btn_refresh_label">Refresh</string>
+    <string name="main_error_message">Error</string>
+    <string name="main_add_video_text">Click on the button to add video.</string>
+    <string name="main_select_video_title_text">Select Video</string>
+
+    <string name="trailer_error_message">Error</string>
+</resources>

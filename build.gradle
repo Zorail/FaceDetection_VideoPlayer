@@ -1,0 +1,39 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.0'
+        classpath 'com.google.gms:google-services:4.0.1'
+        
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    project.ext {
+        supportLibVersion = "27.1.1"
+        constraintLayoutVersion = "1.1.0"
+        exoPlayerVersion = "2.8.1"
+        rxJavaVersion = "2.1.12"
+        rxAndroidVersion = "2.0.2"
+        cameraViewVersion = "2.0.0-beta02"
+        firebaseMLVisionVersion = "18.0.2"
+        fireabseMLVisionFaceModelVersion = "17.0.2"
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

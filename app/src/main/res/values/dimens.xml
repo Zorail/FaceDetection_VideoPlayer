@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_movie_title_text_size">24sp</dimen>
+    <dimen name="main_movie_year_text_size">16sp</dimen>
+    <dimen name="main_movie_item_padding">8dp</dimen>
+    <dimen name="main_loading_indicator_min_dimen">50dp</dimen>
+    <dimen name="main_fab_margin">16dp</dimen>
+
+    <dimen name="video_view_exo_player_play_pause_button_dimen">72dp</dimen>
+</resources>
