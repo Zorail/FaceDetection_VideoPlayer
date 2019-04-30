@@ -2,7 +2,6 @@ package com.zorail.video_player.ui.video;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Camera;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
@@ -12,16 +11,12 @@ import com.google.android.gms.vision.MultiProcessor;
 import com.google.android.gms.vision.Tracker;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
-import com.google.firebase.ml.vision.FirebaseVision;
-import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetector;
-import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions;
 import com.zorail.video_player.Service.Camera2Source;
 import com.zorail.video_player.Service.CameraSourcePreview;
 import com.zorail.video_player.device.player.MediaPlayerImpl;
 
-import java.io.IOException;
+
 import java.lang.ref.WeakReference;
-import com.zorail.video_player.Service.CameraService;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 
@@ -29,7 +24,6 @@ public class VideoViewPresenter implements VideoViewContract.Presenter {
 
     private WeakReference view;
     VideoViewContract.View viewContract;
-    CameraService cameraService;
     private MediaPlayerImpl mediaPlayer;
     private FaceDetector previewFaceDetector;
     private Camera2Source mCameraSource;
@@ -57,15 +51,11 @@ public class VideoViewPresenter implements VideoViewContract.Presenter {
 
 
     public void camera_use(Context context, Activity activity) {
-//        this.context = context;
-//        cameraService=new CameraService(context, activity);
-//        cameraService.openCamera();
         createCameraSourceFront();
     }
 
     @Override
     public void closeCamera() {
-//        cameraService.closeCamera();
         stopCameraSource();
     }
 
@@ -134,7 +124,9 @@ public class VideoViewPresenter implements VideoViewContract.Presenter {
     private void decideAndChangeStateOfPlayer(Face face) {
         float left = face.getIsLeftEyeOpenProbability();
         float right = face.getIsRightEyeOpenProbability();
-        Log.d("TAG", mediaPlayer.getPlayerState() + "");
+        float eulerZ = face.getEulerZ();
+        float eulerY = face.getEulerY();
+        Log.d("TAG", " " + eulerY + " " + eulerZ);
         if((left+right) < 0.5) {
             if(mediaPlayer.getPlayerState()) {
                 mediaPlayer.pausePlayer();
